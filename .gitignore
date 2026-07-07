@@ -1,0 +1,30 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+
+# Dependencies
+node_modules/
+
+# Build
+dist/
+build/
+
+# VS Code
+.vscode/
+
+# Mac
+.DS_Store
+
+# Windows
+Thumbs.db
+
+# Environment
+.env
+
+# Coverage
+coverage/
+
+# Temporary
+*.tmp
+*.temp
