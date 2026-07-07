@@ -1,0 +1,2381 @@
+# 🩺 FisioMed-Interna
+
+## Sistema Inteligente de Evaluación Fisioterapéutica
+
+**Versión:** 1.0.0
+
+---
+
+## Descripción
+
+FisioMed-Interna es un software clínico desarrollado para apoyar el proceso de evaluación fisioterapéutica en pacientes con patologías musculoesqueléticas.
+
+La primera versión está diseñada para la evaluación completa de pacientes con **meniscopatías de rodilla**, integrando herramientas clínicas, escalas funcionales, pruebas semiológicas, razonamiento fisioterapéutico, diagnóstico y pronóstico automatizados.
+
+---
+
+# Objetivos
+
+- Digitalizar la historia clínica fisioterapéutica.
+- Automatizar cálculos clínicos.
+- Mejorar el razonamiento fisioterapéutico.
+- Generar diagnósticos fisioterapéuticos.
+- Emitir pronósticos automáticos.
+- Exportar informes clínicos.
+
+---
+
+# Funcionalidades
+
+## Dashboard
+
+- Panel principal
+- Barra lateral
+- Barra superior
+- Tarjetas informativas
+- Barra de progreso
+
+---
+
+## Módulo 1
+
+Datos del paciente
+
+- Datos personales
+- Fotografía
+- Peso
+- Talla
+- IMC automático
+- Clasificación OMS
+
+---
+
+## Módulo 2
+
+Antecedentes
+
+- Familiares
+- Personales
+- Quirúrgicos
+- Traumáticos
+
+---
+
+## Módulo 3
+
+Signos Vitales
+
+- PA
+- FC
+- FR
+- SatO₂
+- Temperatura
+- EVA
+
+---
+
+## Módulo 4
+
+Sistema de Banderas
+
+- Roja
+- Amarilla
+- Azul
+- Negra
+- Naranja
+- Rosa
+
+---
+
+## Módulo 5
+
+Evaluación Funcional
+
+- LEFS
+- IKDC
+- Lysholm
+- FMS
+- Tinetti
+
+---
+
+## Módulo 6
+
+Evaluación Ortopédica
+
+- Inspección
+- Palpación
+- Goniometría
+- Fuerza
+- Marcha
+- Postura
+
+---
+
+## Módulo 7
+
+Pruebas Semiológicas
+
+- McMurray
+- Apley
+- Thessaly
+- Lachman
+- Pivot Shift
+- Cajón Anterior
+- Cajón Posterior
+
+---
+
+## Módulo 8
+
+Pruebas Complementarias
+
+- Resonancia
+- Radiografía
+- Ecografía
+- TAC
+
+---
+
+## Módulo 9
+
+Motor de Razonamiento Clínico
+
+---
+
+## Módulo 10
+
+Diagnóstico Fisioterapéutico
+
+---
+
+## Módulo 11
+
+Pronóstico
+
+---
+
+# Tecnologías
+
+- HTML5
+- CSS3
+- Bootstrap 5
+- JavaScript ES6
+- Bootstrap Icons
+- Chart.js
+- jsPDF
+- LocalStorage
+
+---
+
+# Instalación
+
+```bash
+git clone https://github.com/TU-USUARIO/FisioMed-Interna.git
+```
+
+Abrir con Visual Studio Code.
+
+Instalar Live Server.
+
+Ejecutar index.html.
+
+---
+
+# Autor
+
+Jeremy Francisco Suárez Zamora
+
+Proyecto desarrollado con apoyo de ChatGPT (OpenAI).
+
+---
+
+# Licencia
+
+MIT License
+assets
+css
+
+js
+
+icons
+
+images
+
+fonts
+modules
+dashboard
+
+paciente
+
+antecedentes
+
+signos
+
+banderas
+
+funcional
+
+ortopedia
+
+semiologia
+
+complementarias
+
+diagnostico
+
+pronostico
+reports
+
+docs
+
+data
+# Logs
+logs
+*.log
+npm-debug.log*
+
+# Dependencies
+node_modules/
+
+# Build
+dist/
+build/
+
+# VS Code
+.vscode/
+
+# Mac
+.DS_Store
+
+# Windows
+Thumbs.db
+
+# Environment
+.env
+
+# Coverage
+coverage/
+
+# Temporary
+*.tmp
+*.temp
+MIT License
+
+Copyright (c) 2026 Jeremy Francisco Suárez Zamora
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND.
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>FisioMed-Interna</title>
+
+    <!-- Bootstrap -->
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Bootstrap Icons -->
+
+    <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <!-- CSS -->
+
+    <link rel="stylesheet" href="assets/css/variables.css">
+
+    <link rel="stylesheet" href="assets/css/layout.css">
+
+</head>
+
+<body>
+
+    <div class="splash-screen">
+
+        <div class="logo">
+
+            <i class="bi bi-heart-pulse-fill"></i>
+
+        </div>
+
+        <h1>FisioMed-Interna</h1>
+
+        <h4>Sistema Inteligente de Evaluación Fisioterapéutica</h4>
+
+        <div class="spinner-border text-success mt-4"></div>
+
+        <p class="mt-3">
+
+            Inicializando módulos...
+
+        </p>
+
+        <div class="progress mt-4">
+
+            <div class="progress-bar progress-bar-striped progress-bar-animated bg-success"
+                style="width:100%">
+            </div>
+
+        </div>
+
+    </div>
+
+<script>
+
+setTimeout(function(){
+
+window.location.href="login.html";
+
+},3000);
+
+</script>
+
+</body>
+
+</html>
+<!DOCTYPE html>
+
+<html lang="es">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Login | FisioMed-Interna</title>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+<link rel="stylesheet" href="assets/css/variables.css">
+
+<link rel="stylesheet" href="assets/css/layout.css">
+
+</head>
+
+<body class="login-body">
+
+<div class="container">
+
+<div class="row justify-content-center align-items-center vh-100">
+
+<div class="col-lg-4">
+
+<div class="card shadow-lg border-0 rounded-4">
+
+<div class="card-body p-5">
+
+<div class="text-center">
+
+<i class="bi bi-heart-pulse-fill logo-login"></i>
+
+<h2 class="mt-3">
+
+FisioMed-Interna
+
+</h2>
+
+<p>
+
+Sistema Inteligente
+
+</p>
+
+</div>
+
+<form>
+
+<div class="mb-3">
+
+<label>Usuario</label>
+
+<input
+type="text"
+class="form-control"
+placeholder="Ingrese usuario">
+
+</div>
+
+<div class="mb-4">
+
+<label>Contraseña</label>
+
+<input
+type="password"
+class="form-control"
+placeholder="Ingrese contraseña">
+
+</div>
+
+<button
+type="button"
+class="btn btn-success w-100"
+onclick="window.location.href='dashboard.html'">
+
+Ingresar
+
+</button>
+
+</form>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</body>
+
+</html>
+:root{
+
+--verde-principal:#0B5D52;
+
+--verde-secundario:#198754;
+
+--verde-claro:#E8F5E9;
+
+--azul:#0D6EFD;
+
+--amarillo:#FFC107;
+
+--rojo:#DC3545;
+
+--gris:#F5F7FA;
+
+--gris-texto:#495057;
+
+--blanco:#FFFFFF;
+
+--sombra:0px 5px 15px rgba(0,0,0,.12);
+
+--radio:15px;
+
+--transicion:.3s;
+
+}
+body{
+
+margin:0;
+
+padding:0;
+
+background:var(--gris);
+
+font-family:'Segoe UI',sans-serif;
+
+}
+
+.splash-screen{
+
+height:100vh;
+
+display:flex;
+
+flex-direction:column;
+
+justify-content:center;
+
+align-items:center;
+
+background:white;
+
+}
+
+.logo{
+
+font-size:90px;
+
+color:var(--verde-principal);
+
+}
+
+.progress{
+
+width:350px;
+
+height:12px;
+
+border-radius:20px;
+
+}
+
+.login-body{
+
+background:linear-gradient(135deg,#0B5D52,#198754);
+
+}
+
+.logo-login{
+
+font-size:70px;
+
+color:var(--verde-principal);
+
+}
+
+.card{
+
+border-radius:var(--radio);
+
+box-shadow:var(--sombra);
+
+}
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Dashboard | FisioMed-Interna</title>
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="assets/css/variables.css">
+    <link rel="stylesheet" href="assets/css/layout.css">
+    <link rel="stylesheet" href="assets/css/dashboard.css">
+
+</head>
+
+<body>
+
+    <!-- Sidebar -->
+
+    <div class="sidebar">
+
+        <div class="logo-area">
+
+            <i class="bi bi-heart-pulse-fill"></i>
+
+            <h3>FisioMed</h3>
+
+            <small>Interna</small>
+
+        </div>
+
+        <ul class="menu">
+
+            <li class="active">
+                <a href="#">
+                    <i class="bi bi-house-door-fill"></i>
+                    Dashboard
+                </a>
+            </li>
+
+            <li>
+                <a href="#">
+                    <i class="bi bi-person-vcard-fill"></i>
+                    Datos del Paciente
+                </a>
+            </li>
+
+            <li>
+                <a href="#">
+                    <i class="bi bi-clipboard2-pulse-fill"></i>
+                    Antecedentes
+                </a>
+            </li>
+
+            <li>
+                <a href="#">
+                    <i class="bi bi-heart-pulse"></i>
+                    Signos Vitales
+                </a>
+            </li>
+
+            <li>
+                <a href="#">
+                    <i class="bi bi-exclamation-triangle-fill"></i>
+                    Sistema de Banderas
+                </a>
+            </li>
+
+            <li>
+                <a href="#">
+                    <i class="bi bi-universal-access-circle"></i>
+                    Evaluación Funcional
+                </a>
+            </li>
+
+            <li>
+                <a href="#">
+                    <i class="bi bi-body-text"></i>
+                    Evaluación Ortopédica
+                </a>
+            </li>
+
+            <li>
+                <a href="#">
+                    <i class="bi bi-search-heart-fill"></i>
+                    Pruebas Semiológicas
+                </a>
+            </li>
+
+            <li>
+                <a href="#">
+                    <i class="bi bi-file-earmark-medical-fill"></i>
+                    Pruebas Complementarias
+                </a>
+            </li>
+
+            <li>
+                <a href="#">
+                    <i class="bi bi-clipboard2-check-fill"></i>
+                    Diagnóstico
+                </a>
+            </li>
+
+            <li>
+                <a href="#">
+                    <i class="bi bi-graph-up-arrow"></i>
+                    Pronóstico
+                </a>
+            </li>
+
+        </ul>
+
+    </div>
+
+    <!-- Contenido Principal -->
+
+    <div class="main-content">
+
+        <!-- Barra Superior -->
+
+        <nav class="navbar navbar-expand-lg bg-white shadow-sm rounded-4 p-3">
+
+            <div class="container-fluid">
+
+                <h4 class="mb-0">
+
+                    <i class="bi bi-speedometer2"></i>
+
+                    Dashboard
+
+                </h4>
+
+                <div class="d-flex align-items-center">
+
+                    <span class="me-3">
+
+                        Bienvenido
+
+                        <strong>Jeremy</strong>
+
+                    </span>
+
+                    <img src="https://ui-avatars.com/api/?name=Jeremy&background=198754&color=fff"
+                        class="rounded-circle" width="45">
+
+                </div>
+
+            </div>
+
+        </nav>
+
+        <!-- Tarjetas -->
+
+        <div class="row mt-4">
+
+            <div class="col-lg-3">
+
+                <div class="card card-dashboard">
+
+                    <div class="card-body">
+
+                        <h6>Pacientes</h6>
+
+                        <h2>0</h2>
+
+                        <i class="bi bi-people-fill card-icon"></i>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="col-lg-3">
+
+                <div class="card card-dashboard">
+
+                    <div class="card-body">
+
+                        <h6>Evaluaciones</h6>
+
+                        <h2>0</h2>
+
+                        <i class="bi bi-clipboard-data-fill card-icon"></i>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="col-lg-3">
+
+                <div class="card card-dashboard">
+
+                    <div class="card-body">
+
+                        <h6>Diagnósticos</h6>
+
+                        <h2>0</h2>
+
+                        <i class="bi bi-journal-medical card-icon"></i>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="col-lg-3">
+
+                <div class="card card-dashboard">
+
+                    <div class="card-body">
+
+                        <h6>Pronósticos</h6>
+
+                        <h2>0</h2>
+
+                        <i class="bi bi-bar-chart-fill card-icon"></i>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+        <!-- ===========================
+             RESUMEN DEL PACIENTE
+        ============================ -->
+
+        <div class="row mt-4">
+
+            <div class="col-lg-8">
+
+                <div class="card shadow-sm border-0 rounded-4">
+
+                    <div class="card-header bg-success text-white">
+
+                        <h5 class="mb-0">
+                            <i class="bi bi-person-badge-fill"></i>
+                            Resumen del Paciente
+                        </h5>
+
+                    </div>
+
+                    <div class="card-body">
+
+                        <div class="row">
+
+                            <div class="col-md-6">
+
+                                <p><strong>Nombre:</strong> Sin registrar</p>
+
+                                <p><strong>Edad:</strong> -- años</p>
+
+                                <p><strong>Sexo:</strong> --</p>
+
+                                <p><strong>Ocupación:</strong> --</p>
+
+                            </div>
+
+                            <div class="col-md-6">
+
+                                <p><strong>Peso:</strong> -- kg</p>
+
+                                <p><strong>Talla:</strong> -- m</p>
+
+                                <p><strong>IMC:</strong> --</p>
+
+                                <p><strong>Clasificación:</strong> --</p>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="col-lg-4">
+
+                <div class="card shadow-sm border-0 rounded-4">
+
+                    <div class="card-header bg-primary text-white">
+
+                        <h5 class="mb-0">
+
+                            <i class="bi bi-clipboard2-pulse-fill"></i>
+
+                            Estado de la Evaluación
+
+                        </h5>
+
+                    </div>
+
+                    <div class="card-body">
+
+                        <h6>Progreso General</h6>
+
+                        <div class="progress mb-3" style="height:20px;">
+
+                            <div class="progress-bar bg-success progress-bar-striped progress-bar-animated"
+
+                                style="width:0%;">
+
+                                0%
+
+                            </div>
+
+                        </div>
+
+                        <p>
+
+                            El paciente aún no ha iniciado la evaluación fisioterapéutica.
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- ===========================
+                ACCESOS RÁPIDOS
+        ============================ -->
+
+        <div class="row mt-4">
+
+            <div class="col-md-3">
+
+                <div class="card text-center shadow-sm border-0 rounded-4">
+
+                    <div class="card-body">
+
+                        <i class="bi bi-person-plus-fill text-success fs-1"></i>
+
+                        <h5 class="mt-3">
+
+                            Nuevo Paciente
+
+                        </h5>
+
+                        <button class="btn btn-success mt-2">
+
+                            Abrir
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="col-md-3">
+
+                <div class="card text-center shadow-sm border-0 rounded-4">
+
+                    <div class="card-body">
+
+                        <i class="bi bi-search text-primary fs-1"></i>
+
+                        <h5 class="mt-3">
+
+                            Buscar Paciente
+
+                        </h5>
+
+                        <button class="btn btn-primary mt-2">
+
+                            Buscar
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="col-md-3">
+
+                <div class="card text-center shadow-sm border-0 rounded-4">
+
+                    <div class="card-body">
+
+                        <i class="bi bi-file-earmark-pdf-fill text-danger fs-1"></i>
+
+                        <h5 class="mt-3">
+
+                            Reportes
+
+                        </h5>
+
+                        <button class="btn btn-danger mt-2">
+
+                            Generar
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="col-md-3">
+
+                <div class="card text-center shadow-sm border-0 rounded-4">
+
+                    <div class="card-body">
+
+                        <i class="bi bi-gear-fill text-warning fs-1"></i>
+
+                        <h5 class="mt-3">
+
+                            Configuración
+
+                        </h5>
+
+                        <button class="btn btn-warning mt-2">
+
+                            Abrir
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- ===========================
+              ACTIVIDAD RECIENTE
+        ============================ -->
+
+        <div class="row mt-4 mb-5">
+
+            <div class="col-lg-12">
+
+                <div class="card shadow-sm border-0 rounded-4">
+
+                    <div class="card-header bg-dark text-white">
+
+                        <h5 class="mb-0">
+
+                            <i class="bi bi-clock-history"></i>
+
+                            Actividad Reciente
+
+                        </h5>
+
+                    </div>
+
+                    <div class="card-body">
+
+                        <table class="table table-hover">
+
+                            <thead>
+
+                                <tr>
+
+                                    <th>Fecha</th>
+
+                                    <th>Paciente</th>
+
+                                    <th>Módulo</th>
+
+                                    <th>Estado</th>
+
+                                </tr>
+
+                            </thead>
+
+                            <tbody>
+
+                                <tr>
+
+                                    <td colspan="4" class="text-center">
+
+                                        No existen registros disponibles.
+
+                                    </td>
+
+                                </tr>
+
+                            </tbody>
+
+                        </table>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- Bootstrap -->
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>
+/*==================================================
+    FISIOMED-INTERNA
+    DASHBOARD.CSS
+==================================================*/
+
+/* ---------- CONTENEDOR PRINCIPAL ---------- */
+
+.main-content{
+    margin-left:280px;
+    padding:30px;
+    transition:0.3s;
+}
+
+/* ---------- SIDEBAR ---------- */
+
+.sidebar{
+
+    position:fixed;
+
+    left:0;
+
+    top:0;
+
+    width:260px;
+
+    height:100vh;
+
+    background:#0B5D52;
+
+    color:white;
+
+    overflow-y:auto;
+
+    box-shadow:0px 0px 20px rgba(0,0,0,.15);
+
+}
+
+.logo-area{
+
+    text-align:center;
+
+    padding:30px 20px;
+
+    border-bottom:1px solid rgba(255,255,255,.15);
+
+}
+
+.logo-area i{
+
+    font-size:60px;
+
+}
+
+.logo-area h3{
+
+    margin-top:15px;
+
+    margin-bottom:0;
+
+}
+
+.logo-area small{
+
+    color:#ddd;
+
+}
+
+/* ---------- MENÚ ---------- */
+
+.menu{
+
+    list-style:none;
+
+    padding:20px;
+
+    margin:0;
+
+}
+
+.menu li{
+
+    margin-bottom:8px;
+
+}
+
+.menu li a{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:15px;
+
+    color:white;
+
+    text-decoration:none;
+
+    padding:14px;
+
+    border-radius:12px;
+
+    transition:.3s;
+
+}
+
+.menu li a:hover{
+
+    background:#198754;
+
+}
+
+.menu li.active a{
+
+    background:white;
+
+    color:#0B5D52;
+
+    font-weight:bold;
+
+}
+
+.menu li a i{
+
+    font-size:20px;
+
+}
+
+/* ---------- NAVBAR ---------- */
+
+.navbar{
+
+    border-radius:18px;
+
+}
+
+/* ---------- TARJETAS ---------- */
+
+.card-dashboard{
+
+    border:none;
+
+    border-radius:20px;
+
+    transition:.3s;
+
+    overflow:hidden;
+
+    position:relative;
+
+}
+
+.card-dashboard:hover{
+
+    transform:translateY(-5px);
+
+}
+
+.card-dashboard .card-body{
+
+    padding:25px;
+
+}
+
+.card-dashboard h6{
+
+    color:#6c757d;
+
+}
+
+.card-dashboard h2{
+
+    font-size:42px;
+
+    font-weight:bold;
+
+}
+
+.card-icon{
+
+    position:absolute;
+
+    right:20px;
+
+    top:20px;
+
+    font-size:55px;
+
+    color:rgba(25,135,84,.15);
+
+}
+
+/* ---------- CARD HEADER ---------- */
+
+.card-header{
+
+    border:none;
+
+    font-weight:600;
+
+}
+
+/* ---------- TABLAS ---------- */
+
+.table thead{
+
+    background:#198754;
+
+    color:white;
+
+}
+
+.table-hover tbody tr:hover{
+
+    background:#E8F5E9;
+
+}
+
+/* ---------- BOTONES ---------- */
+
+.btn{
+
+    border-radius:12px;
+
+}
+
+/* ---------- PROGRESS ---------- */
+
+.progress{
+
+    border-radius:30px;
+
+}
+
+/* ---------- SCROLL ---------- */
+
+.sidebar::-webkit-scrollbar{
+
+    width:8px;
+
+}
+
+.sidebar::-webkit-scrollbar-thumb{
+
+    background:#198754;
+
+    border-radius:20px;
+
+}
+
+/* ---------- FOOTER ---------- */
+
+.footer{
+
+    text-align:center;
+
+    color:#6c757d;
+
+    padding:20px;
+
+}
+
+/* ---------- ANIMACIONES ---------- */
+
+.card{
+
+    animation:fadeUp .5s ease;
+
+}
+
+@keyframes fadeUp{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(20px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+/*=========================================
+        RESPONSIVE.CSS
+        FisioMed-Interna
+==========================================*/
+
+/* Pantallas grandes */
+
+@media (max-width:1400px){
+
+.main-content{
+
+margin-left:250px;
+
+padding:25px;
+
+}
+
+}
+
+/* Laptop */
+
+@media (max-width:1200px){
+
+.sidebar{
+
+width:230px;
+
+}
+
+.main-content{
+
+margin-left:230px;
+
+}
+
+.card-dashboard h2{
+
+font-size:32px;
+
+}
+
+}
+
+/* Tablet */
+
+@media (max-width:992px){
+
+.sidebar{
+
+position:relative;
+
+width:100%;
+
+height:auto;
+
+}
+
+.main-content{
+
+margin-left:0;
+
+padding:20px;
+
+}
+
+.menu{
+
+display:flex;
+
+flex-wrap:wrap;
+
+justify-content:center;
+
+}
+
+.menu li{
+
+width:45%;
+
+}
+
+}
+
+/* Celular */
+
+@media (max-width:768px){
+
+.menu{
+
+display:block;
+
+}
+
+.menu li{
+
+width:100%;
+
+}
+
+.logo-area{
+
+padding:20px;
+
+}
+
+.logo-area i{
+
+font-size:45px;
+
+}
+
+.card-dashboard{
+
+margin-bottom:20px;
+
+}
+
+.navbar h4{
+
+font-size:20px;
+
+}
+
+}
+
+/* Celular pequeño */
+
+@media (max-width:576px){
+
+.main-content{
+
+padding:15px;
+
+}
+
+.card-body{
+
+padding:15px;
+
+}
+
+.card-dashboard h2{
+
+font-size:28px;
+
+}
+
+.logo-area h3{
+
+font-size:20px;
+
+}
+
+.logo-area small{
+
+font-size:12px;
+
+}
+
+.progress{
+
+height:15px;
+
+}
+
+.table{
+
+font-size:13px;
+
+}
+
+.btn{
+
+width:100%;
+
+margin-top:10px;
+
+}
+
+}
+/*====================================
+        FisioMed-Interna
+        APP.JS
+====================================*/
+
+document.addEventListener("DOMContentLoaded",()=>{
+
+console.log("===================================");
+
+console.log("FisioMed-Interna iniciado");
+
+console.log("Versión 1.0");
+
+console.log("===================================");
+
+cargarFecha();
+
+actualizarProgreso();
+
+});
+
+/*====================================
+FECHA
+====================================*/
+
+function cargarFecha(){
+
+const fecha=new Date();
+
+console.log(fecha.toLocaleDateString());
+
+}
+
+/*====================================
+PROGRESO
+====================================*/
+
+function actualizarProgreso(){
+
+let progreso=0;
+
+const barra=document.querySelector(".progress-bar");
+
+if(barra){
+
+barra.style.width=progreso+"%";
+
+barra.innerHTML=progreso+"%";
+
+}
+
+}
+/*======================================
+NAVIGATION.JS
+=======================================*/
+
+const menu=document.querySelectorAll(".menu a");
+
+menu.forEach(item=>{
+
+item.addEventListener("click",function(e){
+
+e.preventDefault();
+
+menu.forEach(link=>{
+
+link.parentElement.classList.remove("active");
+
+});
+
+this.parentElement.classList.add("active");
+
+});
+
+});
+/*=====================================
+LOCAL STORAGE
+======================================*/
+
+function guardarPaciente(datos){
+
+localStorage.setItem("paciente",JSON.stringify(datos));
+
+}
+
+function obtenerPaciente(){
+
+return JSON.parse(localStorage.getItem("paciente"));
+
+}
+
+function eliminarPaciente(){
+
+localStorage.removeItem("paciente");
+
+}
+<div class="container-fluid">
+
+    <!-- Encabezado -->
+
+    <div class="row mb-4">
+
+        <div class="col-12">
+
+            <div class="card shadow-sm border-0">
+
+                <div class="card-body">
+
+                    <h2 class="text-success">
+
+                        <i class="bi bi-person-vcard-fill"></i>
+
+                        Evaluación Fisioterapéutica para Meniscopatías
+
+                    </h2>
+
+                    <p class="text-muted">
+
+                        Módulo 1 - Datos de Identificación del Paciente
+
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- Información Personal -->
+
+    <div class="card shadow-sm border-0 mb-4">
+
+        <div class="card-header bg-success text-white">
+
+            Información Personal
+
+        </div>
+
+        <div class="card-body">
+
+            <div class="row">
+
+                <div class="col-md-4 mb-3">
+
+                    <label>Nombres</label>
+
+                    <input
+                        id="nombres"
+                        type="text"
+                        class="form-control">
+
+                </div>
+
+                <div class="col-md-4 mb-3">
+
+                    <label>Apellidos</label>
+
+                    <input
+                        id="apellidos"
+                        type="text"
+                        class="form-control">
+
+                </div>
+
+                <div class="col-md-4 mb-3">
+
+                    <label>Cédula</label>
+
+                    <input
+                        id="cedula"
+                        type="text"
+                        class="form-control">
+
+                </div>
+
+                <div class="col-md-3 mb-3">
+
+                    <label>Fecha de nacimiento</label>
+
+                    <input
+                        id="fechaNacimiento"
+                        type="date"
+                        class="form-control">
+
+                </div>
+
+                <div class="col-md-2 mb-3">
+
+                    <label>Edad</label>
+
+                    <input
+                        id="edad"
+                        type="number"
+                        class="form-control"
+                        readonly>
+
+                </div>
+
+                <div class="col-md-3 mb-3">
+
+                    <label>Sexo</label>
+
+                    <select
+                        id="sexo"
+                        class="form-select">
+
+                        <option value="">Seleccione</option>
+                        <option>Masculino</option>
+                        <option>Femenino</option>
+
+                    </select>
+
+                </div>
+
+                <div class="col-md-4 mb-3">
+
+                    <label>Ocupación</label>
+
+                    <input
+                        id="ocupacion"
+                        type="text"
+                        class="form-control">
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- Contacto -->
+
+    <div class="card shadow-sm border-0 mb-4">
+
+        <div class="card-header bg-primary text-white">
+
+            Información de Contacto
+
+        </div>
+
+        <div class="card-body">
+
+            <div class="row">
+
+                <div class="col-md-6">
+
+                    <label>Dirección</label>
+
+                    <input
+                        id="direccion"
+                        class="form-control">
+
+                </div>
+
+                <div class="col-md-3">
+
+                    <label>Teléfono</label>
+
+                    <input
+                        id="telefono"
+                        class="form-control">
+
+                </div>
+
+                <div class="col-md-3">
+
+                    <label>Correo</label>
+
+                    <input
+                        id="correo"
+                        type="email"
+                        class="form-control">
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- Datos Antropométricos -->
+
+    <div class="card shadow-sm border-0">
+
+        <div class="card-header bg-warning">
+
+            Datos Antropométricos
+
+        </div>
+
+        <div class="card-body">
+
+            <div class="row">
+
+                <div class="col-md-3">
+
+                    <label>Peso (kg)</label>
+
+                    <input
+                        id="peso"
+                        type="number"
+                        class="form-control">
+
+                </div>
+
+                <div class="col-md-3">
+
+                    <label>Talla (m)</label>
+
+                    <input
+                        id="talla"
+                        type="number"
+                        step="0.01"
+                        class="form-control">
+
+                </div>
+
+                <div class="col-md-3">
+
+                    <label>IMC</label>
+
+                    <input
+                        id="imc"
+                        class="form-control"
+                        readonly>
+
+                </div>
+
+                <div class="col-md-3">
+
+                    <label>Clasificación OMS</label>
+
+                    <input
+                        id="clasificacion"
+                        class="form-control"
+                        readonly>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="mt-4 text-end">
+
+        <button
+            class="btn btn-success btn-lg"
+            onclick="guardarPaciente()">
+
+            Guardar Información
+
+        </button>
+
+    </div>
+
+</div>
+/*==========================================
+        PATIENT.JS
+==========================================*/
+
+const nacimiento=document.getElementById("fechaNacimiento");
+
+if(nacimiento){
+
+nacimiento.addEventListener("change",calcularEdad);
+
+}
+
+function calcularEdad(){
+
+const fecha=new Date(document.getElementById("fechaNacimiento").value);
+
+const hoy=new Date();
+
+let edad=hoy.getFullYear()-fecha.getFullYear();
+
+const mes=hoy.getMonth()-fecha.getMonth();
+
+if(mes<0 || (mes===0 && hoy.getDate()<fecha.getDate())){
+
+edad--;
+
+}
+
+document.getElementById("edad").value=edad;
+
+}
+
+const peso=document.getElementById("peso");
+
+const talla=document.getElementById("talla");
+
+if(peso && talla){
+
+peso.addEventListener("input",calcularIMC);
+
+talla.addEventListener("input",calcularIMC);
+
+}
+
+function calcularIMC(){
+
+const p=parseFloat(document.getElementById("peso").value);
+
+const t=parseFloat(document.getElementById("talla").value);
+
+if(!p || !t){
+
+return;
+
+}
+
+const imc=(p/(t*t));
+
+document.getElementById("imc").value=imc.toFixed(2);
+
+let clasificacion="";
+
+if(imc<18.5){
+
+clasificacion="Bajo peso";
+
+}else if(imc<25){
+
+clasificacion="Normal";
+
+}else if(imc<30){
+
+clasificacion="Sobrepeso";
+
+}else if(imc<35){
+
+clasificacion="Obesidad I";
+
+}else if(imc<40){
+
+clasificacion="Obesidad II";
+
+}else{
+
+clasificacion="Obesidad III";
+
+}
+
+document.getElementById("clasificacion").value=clasificacion;
+
+}
+
+function guardarPaciente(){
+
+const paciente={
+
+nombres:document.getElementById("nombres").value,
+
+apellidos:document.getElementById("apellidos").value,
+
+cedula:document.getElementById("cedula").value,
+
+edad:document.getElementById("edad").value,
+
+sexo:document.getElementById("sexo").value,
+
+ocupacion:document.getElementById("ocupacion").value,
+
+direccion:document.getElementById("direccion").value,
+
+telefono:document.getElementById("telefono").value,
+
+correo:document.getElementById("correo").value,
+
+peso:document.getElementById("peso").value,
+
+talla:document.getElementById("talla").value,
+
+imc:document.getElementById("imc").value,
+
+clasificacion:document.getElementById("clasificacion").value
+
+};
+
+localStorage.setItem("paciente",JSON.stringify(paciente));
+
+alert("Paciente guardado correctamente.");
+
+}
+<!-- ==========================================
+     INFORMACIÓN CLÍNICA
+=========================================== -->
+
+<div class="card shadow-sm border-0 mt-4">
+
+    <div class="card-header bg-info text-white">
+
+        <h5 class="mb-0">
+            <i class="bi bi-hospital"></i>
+            Información Clínica
+        </h5>
+
+    </div>
+
+    <div class="card-body">
+
+        <div class="row">
+
+            <div class="col-md-4 mb-3">
+
+                <label>Diagnóstico Médico</label>
+
+                <input
+                    id="diagnosticoMedico"
+                    class="form-control"
+                    placeholder="Ej. Meniscopatía medial derecha">
+
+            </div>
+
+            <div class="col-md-2 mb-3">
+
+                <label>CIE-10</label>
+
+                <input
+                    id="cie10"
+                    class="form-control"
+                    placeholder="Ej. M23.2">
+
+            </div>
+
+            <div class="col-md-3 mb-3">
+
+                <label>Médico Tratante</label>
+
+                <input
+                    id="medico"
+                    class="form-control">
+
+            </div>
+
+            <div class="col-md-3 mb-3">
+
+                <label>Fecha Evaluación</label>
+
+                <input
+                    id="fechaEvaluacion"
+                    type="date"
+                    class="form-control">
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- ==========================================
+     MOTIVO DE CONSULTA
+=========================================== -->
+
+<div class="card shadow-sm border-0 mt-4">
+
+    <div class="card-header bg-primary text-white">
+
+        <h5 class="mb-0">
+            <i class="bi bi-chat-left-medical-fill"></i>
+            Motivo de Consulta
+        </h5>
+
+    </div>
+
+    <div class="card-body">
+
+        <textarea
+
+            id="motivoConsulta"
+
+            rows="5"
+
+            class="form-control"
+
+            placeholder="Describa el motivo principal por el cual el paciente acude a fisioterapia...">
+
+        </textarea>
+
+    </div>
+
+</div>
+
+<!-- ==========================================
+     HISTORIA DE LA ENFERMEDAD ACTUAL
+=========================================== -->
+
+<div class="card shadow-sm border-0 mt-4">
+
+    <div class="card-header bg-secondary text-white">
+
+        <h5 class="mb-0">
+
+            <i class="bi bi-journal-medical"></i>
+
+            Historia de la Enfermedad Actual
+
+        </h5>
+
+    </div>
+
+    <div class="card-body">
+
+        <textarea
+
+            id="historiaActual"
+
+            rows="8"
+
+            class="form-control"
+
+            placeholder="Describa el inicio, evolución, tratamiento previo, síntomas actuales y limitaciones funcionales...">
+
+        </textarea>
+
+    </div>
+
+</div>
+
+<!-- ==========================================
+     BOTONES DE NAVEGACIÓN
+=========================================== -->
+
+<div class="row mt-5">
+
+    <div class="col-md-6">
+
+        <button
+
+            class="btn btn-outline-secondary btn-lg w-100"
+
+            disabled>
+
+            <i class="bi bi-arrow-left"></i>
+
+            Anterior
+
+        </button>
+
+    </div>
+
+    <div class="col-md-6">
+
+        <button
+
+            class="btn btn-success btn-lg w-100"
+
+            onclick="guardarPaciente()">
+
+            Guardar y continuar
+
+            <i class="bi bi-arrow-right"></i>
+
+        </button>
+
+    </div>
+
+</div>
+<div class="container-fluid">
+
+    <div class="card shadow-sm border-0 mb-4">
+
+        <div class="card-header bg-success text-white">
+
+            <h4 class="mb-0">
+                <i class="bi bi-clipboard2-pulse-fill"></i>
+                Antecedentes Clínicos
+            </h4>
+
+        </div>
+
+        <div class="card-body">
+
+            <div class="row">
+
+                <div class="col-md-12 mb-4">
+
+                    <label class="form-label fw-bold">
+                        Antecedentes Patológicos Personales
+                    </label>
+
+                    <textarea
+                        id="antecedentesPersonales"
+                        rows="5"
+                        class="form-control"
+                        placeholder="Ej.: Diabetes mellitus tipo II, hipertensión arterial, artrosis de rodilla..."></textarea>
+
+                </div>
+
+                <div class="col-md-12 mb-4">
+
+                    <label class="form-label fw-bold">
+                        Antecedentes Patológicos Familiares
+                    </label>
+
+                    <textarea
+                        id="antecedentesFamiliares"
+                        rows="5"
+                        class="form-control"
+                        placeholder="Ej.: Padre con hipertensión, madre con diabetes mellitus..."></textarea>
+
+                </div>
+
+                <div class="col-md-12 mb-4">
+
+                    <label class="form-label fw-bold">
+                        Antecedentes Quirúrgicos
+                    </label>
+
+                    <textarea
+                        id="antecedentesQuirurgicos"
+                        rows="4"
+                        class="form-control"
+                        placeholder="Describa procedimientos quirúrgicos previos, fechas y evolución."></textarea>
+
+                </div>
+
+                <div class="col-md-12 mb-4">
+
+                    <label class="form-label fw-bold">
+                        Antecedentes Traumáticos
+                    </label>
+
+                    <textarea
+                        id="antecedentesTraumaticos"
+                        rows="4"
+                        class="form-control"
+                        placeholder="Fracturas, esguinces, accidentes de tránsito, caídas u otros traumatismos."></textarea>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+.card-header{
+    font-weight:600;
+}
+
+textarea{
+    resize:vertical;
+    min-height:120px;
+}
+
+.form-label{
+    color:#0B5D52;
+}
+function guardarAntecedentes(){
+
+    const antecedentes = {
+
+        personales: document.getElementById("antecedentesPersonales").value,
+
+        familiares: document.getElementById("antecedentesFamiliares").value,
+
+        quirurgicos: document.getElementById("antecedentesQuirurgicos").value,
+
+        traumaticos: document.getElementById("antecedentesTraumaticos").value
+
+    };
+
+    localStorage.setItem(
+        "antecedentes",
+        JSON.stringify(antecedentes)
+    );
+
+    alert("Antecedentes guardados correctamente.");
+}
+
+/*=========================================
+        ROUTER.JS
+=========================================*/
+
+const rutas = {
+
+    dashboard: "modules/dashboard/dashboard.html",
+
+    paciente: "modules/paciente/paciente.html",
+
+    antecedentes: "modules/antecedentes/antecedentes.html",
+
+    signos: "modules/signos/signos.html",
+
+    banderas: "modules/banderas/banderas.html",
+
+    funcional: "modules/funcional/funcional.html",
+
+    ortopedia: "modules/ortopedia/ortopedia.html",
+
+    semiologia: "modules/semiologia/semiologia.html",
+
+    complementarias: "modules/complementarias/complementarias.html",
+
+    diagnostico: "modules/diagnostico/diagnostico.html",
+
+    pronostico: "modules/pronostico/pronostico.html"
+
+};
+
+async function cargarModulo(nombre){
+
+    const contenedor = document.getElementById("contenidoPrincipal");
+
+    try{
+
+        const respuesta = await fetch(rutas[nombre]);
+
+        const html = await respuesta.text();
+
+        contenedor.innerHTML = html;
+
+    }
+
+    catch(error){
+
+        contenedor.innerHTML = `
+
+        <div class="alert alert-danger">
+
+            Error al cargar el módulo.
+
+        </div>
+
+        `;
+
+        console.error(error);
+
+    }
+
+}
